@@ -19,8 +19,10 @@ packages:
     dependency: "direct main"
     description:
       path: "packages/bmi"
-      relative: true
-    source: path
+      ref: HEAD
+      resolved-ref: c608a277b9095d18336be8d1da413ddac02f0d03
+      url: "https://github.com/Thalinda/My_pcakages/"
+    source: git
     version: "0.0.1"
   boolean_selector:
     dependency: transitive
