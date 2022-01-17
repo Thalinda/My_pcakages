@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'bmi_calculation_page.dart';
+import 'package:my_packages/dynamic_forms.dart';
 
 void main() async {
   runApp(const MyApp());
@@ -26,6 +25,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BmiCalculationPage();
+    return const DynamicForms();
   }
 }
