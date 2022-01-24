@@ -17,7 +17,7 @@ class CommonFunction {
 
   getformdata() {
     Map<String, dynamic> data1 = {};
-    print(CommonFunction.dataset);
+
     for (var i = 0; i < _values.length; i++) {
       data1[_values[i]['id']] = _values[i]['value'];
     }

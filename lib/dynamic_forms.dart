@@ -17,44 +17,87 @@ class _DynamicFormsState extends State<DynamicForms> {
   // final List<Map<String, dynamic>> _values = [];
   final List<Map<String, dynamic>> dataset = [
     {
-      'filed_type': 'TEXT',
-      'key': 'fname',
-      'label': 'User First Name',
-      'required': true,
+      "surveyQuizId": 1, //rating
+      "surveyId": 0,
+      "quizType": 0,
+      "quiz": "string",
+      "isRequired": 0
+    },
+
+    {
+      "surveyQuizId": 2, //rating
+      "surveyId": 0,
+      "quizType": 0,
+      "options": ['YES', 'NO', 'Maybe'],
+      "quiz": "What is the answer?",
+      "isRequired": 0
     },
     {
-      'filed_type': 'TEXT',
-      'key': 'lname',
-      'label': 'User Lat Name',
+      "surveyQuizId": 2, //rating
+      "surveyId": 0,
+      "quizType": 0,
+      "options": ['YES', 'NO', 'Maybe'],
+      "quiz": "what is the answer?",
+      "isRequired": 0
     },
-    {
-      'filed_type': 'TEXT',
-      'key': 'place',
-      'label': 'Rate',
-    },
-    {
-      'filed_type': 'TOGGLE',
-      'key': 'rattings_for_pace',
-      'limit': 10,
-      'label': 'User Rattings',
-    },
-    {
-      'filed_type': 'SELECT',
-      'key': 'select_type',
-      'items': [
-        {"name": "Thalinda", "id": "1"},
-        {"name": "Bandara", "id": "2"},
-        {"name": "Setting", "id": "3"},
-        {"name": 'Trying', "id": "4"}
-      ],
-      'label': 'Select Stay Type',
-    },
-    {
-      'filed_type': 'CHECKBOX',
-      'key': 'agree',
-      'label': 'User Rattings',
-    },
+
+    // {
+    //   "surveyQuizId": 2,//radio
+    //   "surveyId": 0,
+    //   "quizType": 0,
+    //   "option": ["no", "yes"],
+    //   "quiz": "string",
+    //   "isRequired": 0
+    // },
+    // {
+    //   "surveyQuizId": 3,//textbox
+    //   "surveyId": 0,
+    //   "quizType": 0,
+    //   "quiz": "string",
+    //   "isRequired": 0
+    // },
   ];
+
+  final Map serverdata = {
+    "surveyId": 0,
+    "surveyTitle": "string",
+    "description": "string",
+    "status": 0,
+    "surveyLink": "string",
+    "active": 0,
+    "createdDate": "2022-01-18T06:31:07.026Z",
+    "modifiedDate": "2022-01-18T06:31:07.026Z",
+    "surveyQuizInfo": [
+      {
+        "surveyQuizId": 1,
+        "surveyId": 0,
+        "quizType": 0,
+        "quiz": "string",
+        "isRequired": 0
+      },
+      {
+        "surveyQuizId": 2,
+        "surveyId": 0,
+        "quizType": 0,
+        "quiz": "string",
+        "isRequired": 0
+      },
+      {
+        "surveyQuizId": 3,
+        "surveyId": 0,
+        "quizType": 0,
+        "quiz": "string",
+        "isRequired": 0
+      },
+      {
+        "surveyQuizId": 3,
+        "surveyId": 0,
+        "quizType": 0,
+        "quiz": "string",
+        "isRequired": 0
+      }
+    ]
+  };
 
   @override
   void initState() {

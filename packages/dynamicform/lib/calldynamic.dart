@@ -24,26 +24,24 @@ class _GenerateDyamicFormState extends State<GenerateDyamicForm> {
       shrinkWrap: true,
       itemCount: widget.dataset.length,
       itemBuilder: (context, index) {
-        return widget.dataset[index]['filed_type'] == "TEXT"
-            ? TextFieldFrom(
-                label: widget.dataset[index]['label'],
-                keyvalue: widget.dataset[index]['key'])
-            : widget.dataset[index]['filed_type'] == "TOGGLE"
-                ? RatingButton(
-                    keyvalue: widget.dataset[index]['key'],
-                    limit: widget.dataset[index]['limit'],
-                    label: widget.dataset[index]['label'])
-                : widget.dataset[index]['filed_type'] == "SELECT"
-                    ? SelectFiledSearchable(
-                        items: widget.dataset[index]['items'],
-                        label: widget.dataset[index]['label'],
-                        keyvale: widget.dataset[index]['key'])
-                    : widget.dataset[index]['filed_type'] == "CHECKBOX"
-                        ? CheckBoxField(
-                            label: widget.dataset[index]['label'],
-                            keyvalue: widget.dataset[index]['key'],
-                          )
-                        : Container();
+        print(widget.dataset[index]);
+        return widget.dataset[index]['surveyQuizId'] == 1
+            ? RatingButton(
+                keyvalue: widget.dataset[index]['surveyQuizId'].toString(),
+                limit: 10,
+                label: widget.dataset[index]['quiz'])
+            : widget.dataset[index]['surveyQuizId'] == 2
+                ? RadioButtons(
+                    label: widget.dataset[index]['quiz'],
+                    keyvalue: widget.dataset[index]['surveyQuizId'].toString(),
+                    options: widget.dataset[index]['options'],
+                  )
+                : widget.dataset[index]['surveyQuizId'] == 3
+                    ? TextFieldFrom(
+                        label: widget.dataset[index]['quiz'],
+                        keyvalue:
+                            widget.dataset[index]['surveyQuizId'].toString())
+                    : Container();
       },
     );
   }
