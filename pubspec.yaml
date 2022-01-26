@@ -35,6 +35,10 @@ dependencies:
   dropdown_search: ^2.0.1
   dynamicform:
     path: packages/dynamicform
+  # dynamicform:
+  #   git:
+  #     url: https://github.com/Thalinda/My_pcakages/
+  #     path: packages/dynamicform
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
