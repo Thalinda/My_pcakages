@@ -25,18 +25,18 @@ class _GenerateDyamicFormState extends State<GenerateDyamicForm> {
       itemCount: widget.dataset.length,
       itemBuilder: (context, index) {
         print(widget.dataset[index]);
-        return widget.dataset[index]['surveyQuizId'] == 1
+        return widget.dataset[index]['quizType'] == 1
             ? RatingButton(
                 keyvalue: widget.dataset[index]['surveyQuizId'].toString(),
                 limit: 10,
                 label: widget.dataset[index]['quiz'])
-            : widget.dataset[index]['surveyQuizId'] == 2
+            : widget.dataset[index]['quizType'] == 2
                 ? RadioButtons(
                     label: widget.dataset[index]['quiz'],
                     keyvalue: widget.dataset[index]['surveyQuizId'].toString(),
                     options: widget.dataset[index]['options'],
                   )
-                : widget.dataset[index]['surveyQuizId'] == 3
+                : widget.dataset[index]['quizType'] == 3
                     ? TextFieldFrom(
                         label: widget.dataset[index]['quiz'],
                         keyvalue:
