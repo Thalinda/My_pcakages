@@ -6,11 +6,13 @@ class RadioButtons extends StatefulWidget {
       {Key? key,
       required this.label,
       required this.keyvalue,
+      required this.isRequired,
       required this.options})
       : super(key: key);
   final String label;
   final String keyvalue;
   final List options;
+  final int isRequired;
 
   CommonFunction common = CommonFunction();
   final List<Map<String, dynamic>> _radiobuttons = [];
@@ -38,7 +40,7 @@ class _RadioButtonsState extends State<RadioButtons> {
                           onChanged: (bool) {
                             _radioButtonUpdate(
                                 widget.keyvalue, bool.toString());
-                            widget.common._onUpdate(widget.keyvalue, bool);
+                            widget.common._onUpdate(widget.keyvalue, bool, widget.isRequired, widget.label);
                             setState(() {});
                           }),
                       Text(e),
