@@ -29,7 +29,7 @@ class _DynamicFormsState extends State<DynamicForms> {
     SurveyQuizeModel(
         options: [],
         surveyQuizId: 2,
-        surveyId: 1,
+        surveyId: 2,
         quizType: 2,
         quiz: "Residency Policies Survey Question 02",
         isRequired: 0,
@@ -38,7 +38,7 @@ class _DynamicFormsState extends State<DynamicForms> {
     SurveyQuizeModel(
         options: [],
         surveyQuizId: 3,
-        surveyId: 1,
+        surveyId: 3,
         quizType: 2,
         quiz: "Residency Policies Survey Question 03",
         isRequired: 1,
@@ -47,7 +47,7 @@ class _DynamicFormsState extends State<DynamicForms> {
     SurveyQuizeModel(
         options: ["NC", "NS"],
         surveyQuizId: 4,
-        surveyId: 1,
+        surveyId: 4,
         quizType: 1,
         quiz: "Residency Policies Survey Question 04",
         isRequired: 1,
@@ -56,37 +56,12 @@ class _DynamicFormsState extends State<DynamicForms> {
     SurveyQuizeModel(
         options: ["NC", "NS"],
         surveyQuizId: 5,
-        surveyId: 1,
+        surveyId: 5,
         quizType: 1,
         quiz: "Residency Policies Survey Question 05",
         isRequired: 0,
         createdDate: DateTime.parse("2022-01-26T00:00:00"),
         modifiedDate: DateTime.parse("2022-01-26T00:00:00"))
-  ];
-  final List<Map<String, dynamic>> dataset = [
-    {
-      "surveyQuizId": 1, //rating
-      "surveyId": 0,
-      "quizType": 1,
-      "quiz": "string",
-      "isRequired": 0
-    },
-    {
-      "surveyQuizId": 2, //rating
-      "surveyId": 0,
-      "quizType": 2,
-      "options": ['YES', 'NO'],
-      "quiz": "What is the answer?",
-      "isRequired": 0
-    },
-    {
-      "surveyQuizId": 3, //rating
-      "surveyId": 0,
-      "quizType": 2,
-      "options": ['YES', 'NO', 'Maybe'],
-      "quiz": "what is the answer?",
-      "isRequired": 0
-    },
   ];
 
   @override

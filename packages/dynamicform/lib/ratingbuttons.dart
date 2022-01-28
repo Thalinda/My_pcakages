@@ -7,11 +7,13 @@ class RatingButton extends StatefulWidget {
       {Key? key,
       required this.keyvalue,
       required this.limit,
-      required this.label})
+      required this.label,
+      required this.isRequired})
       : super(key: key);
   String label;
   int limit;
   String keyvalue;
+  int isRequired;
 
   @override
   _RatingButtonState createState() => _RatingButtonState();
@@ -43,7 +45,7 @@ class _RatingButtonState extends State<RatingButton> {
             onPressed: (index) {
               setState(() {
                 _toggleupdate(widget.keyvalue, index.toString());
-                comm._onUpdate(widget.keyvalue, (index + 1).toString());
+                comm._onUpdate(widget.keyvalue, (index + 1).toString(),widget.isRequired,widget.label);
               });
             },
             isSelected: List.generate(widget.limit, (index) {

@@ -2,13 +2,15 @@ part of dynamicform;
 
 // ignore: must_be_immutable
 class CheckBoxField extends StatefulWidget {
-  CheckBoxField({
-    Key? key,
-    required this.label,
-    required this.keyvalue,
-  }) : super(key: key);
+  CheckBoxField(
+      {Key? key,
+      required this.label,
+      required this.keyvalue,
+      required this.isRequired})
+      : super(key: key);
   final String label;
   final String keyvalue;
+  final int isRequired;
 
   CommonFunction common = CommonFunction();
   final List<Map<String, dynamic>> _radioselection = [];
@@ -30,7 +32,8 @@ class _CheckBoxFieldState extends State<CheckBoxField> {
               setState(() {
                 _checkboxupdate(widget.keyvalue, vale);
 
-                widget.common._onUpdate(widget.keyvalue, vale);
+                widget.common._onUpdate(
+                    widget.keyvalue, vale, widget.isRequired, widget.label);
               });
             }), //Checkbox
         Text(

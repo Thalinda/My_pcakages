@@ -7,11 +7,13 @@ class SelectFiledSearchable extends StatefulWidget {
       {Key? key,
       required this.items,
       required this.label,
-      required this.keyvale})
+      required this.keyvale,
+      required this.isRequired})
       : super(key: key);
   final List<Map<String, dynamic>> items;
   final String label;
   final String keyvale;
+  final int isRequired;
   CommonFunction comm = CommonFunction();
   @override
   _SelectFiledSearchableState createState() => _SelectFiledSearchableState();
@@ -34,7 +36,7 @@ class _SelectFiledSearchableState extends State<SelectFiledSearchable> {
               widget.items.indexWhere((item) => item['name'] == index);
 
           setState(() {
-            widget.comm._onUpdate(widget.keyvale, widget.items[indexof]['id']);
+            widget.comm._onUpdate(widget.keyvale, widget.items[indexof]['id'],widget.isRequired,widget.label);
           });
         },
         selectedItem: widget.items[0]['name']);
