@@ -16,6 +16,7 @@ class _GenerateDyamicFormState extends State<GenerateDyamicForm> {
   void initState() {
     super.initState();
     CommonFunction.dataset = widget.dataset;
+    print("Number of : " + widget.dataset.length.toString());
   }
 
   @override
@@ -24,18 +25,17 @@ class _GenerateDyamicFormState extends State<GenerateDyamicForm> {
       shrinkWrap: true,
       itemCount: widget.dataset.length,
       itemBuilder: (context, index) {
-        print(widget.dataset[index]);
         return widget.dataset[index]['quizType'] == 1
-            ? RatingButton(
+            ? RadioButtons(
+                label: widget.dataset[index]['quiz'],
                 keyvalue: widget.dataset[index]['surveyQuizId'].toString(),
-                limit: 10,
-                label: widget.dataset[index]['quiz'])
+                options: widget.dataset[index]['options'],
+              )
             : widget.dataset[index]['quizType'] == 2
-                ? RadioButtons(
-                    label: widget.dataset[index]['quiz'],
+                ? RatingButton(
                     keyvalue: widget.dataset[index]['surveyQuizId'].toString(),
-                    options: widget.dataset[index]['options'],
-                  )
+                    limit: 10,
+                    label: widget.dataset[index]['quiz'])
                 : widget.dataset[index]['quizType'] == 3
                     ? TextFieldFrom(
                         label: widget.dataset[index]['quiz'],
@@ -46,3 +46,7 @@ class _GenerateDyamicFormState extends State<GenerateDyamicForm> {
     );
   }
 }
+
+// 1 Rating
+// 2 Radio
+// 3 Text

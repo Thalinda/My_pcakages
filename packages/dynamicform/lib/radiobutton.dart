@@ -23,7 +23,6 @@ class _RadioButtonsState extends State<RadioButtons> {
   @override
   Widget build(BuildContext context) {
     String value = getMyRadiobutton(widget.keyvalue);
-    print(value);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
