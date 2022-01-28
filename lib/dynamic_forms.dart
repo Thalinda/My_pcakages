@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:dynamicform/dynamicform.dart';
+import 'package:my_packages/models/surveyQuiz.dart';
 
 class DynamicForms extends StatefulWidget {
   const DynamicForms({Key? key}) : super(key: key);
@@ -15,6 +16,53 @@ class _DynamicFormsState extends State<DynamicForms> {
   // final List<Map<String, dynamic>> _toggleselection = [];
   // final List<Map<String, dynamic>> _radioselection = [];
   // final List<Map<String, dynamic>> _values = [];
+  List<SurveyQuizeModel> quizelist = [
+    SurveyQuizeModel(
+        options: [],
+        surveyQuizId: 1,
+        surveyId: 1,
+        quizType: 3,
+        quiz: "Residency Policies Survey Question 01",
+        isRequired: 1,
+        createdDate: DateTime.parse("2022-01-26T00:00:00"),
+        modifiedDate: DateTime.parse("2022-01-26T00:00:00")),
+    SurveyQuizeModel(
+        options: [],
+        surveyQuizId: 2,
+        surveyId: 1,
+        quizType: 2,
+        quiz: "Residency Policies Survey Question 02",
+        isRequired: 0,
+        createdDate: DateTime.parse("2022-01-26T00:00:00"),
+        modifiedDate: DateTime.parse("2022-01-26T00:00:00")),
+    SurveyQuizeModel(
+        options: [],
+        surveyQuizId: 3,
+        surveyId: 1,
+        quizType: 2,
+        quiz: "Residency Policies Survey Question 03",
+        isRequired: 1,
+        createdDate: DateTime.parse("2022-01-26T00:00:00"),
+        modifiedDate: DateTime.parse("2022-01-26T00:00:00")),
+    SurveyQuizeModel(
+        options: ["NC", "NS"],
+        surveyQuizId: 4,
+        surveyId: 1,
+        quizType: 1,
+        quiz: "Residency Policies Survey Question 04",
+        isRequired: 1,
+        createdDate: DateTime.parse("2022-01-26T00:00:00"),
+        modifiedDate: DateTime.parse("2022-01-26T00:00:00")),
+    SurveyQuizeModel(
+        options: ["NC", "NS"],
+        surveyQuizId: 5,
+        surveyId: 1,
+        quizType: 1,
+        quiz: "Residency Policies Survey Question 05",
+        isRequired: 0,
+        createdDate: DateTime.parse("2022-01-26T00:00:00"),
+        modifiedDate: DateTime.parse("2022-01-26T00:00:00"))
+  ];
   final List<Map<String, dynamic>> dataset = [
     {
       "surveyQuizId": 1, //rating
@@ -23,7 +71,6 @@ class _DynamicFormsState extends State<DynamicForms> {
       "quiz": "string",
       "isRequired": 0
     },
-
     {
       "surveyQuizId": 2, //rating
       "surveyId": 0,
@@ -40,64 +87,7 @@ class _DynamicFormsState extends State<DynamicForms> {
       "quiz": "what is the answer?",
       "isRequired": 0
     },
-
-    // {
-    //   "surveyQuizId": 2,//radio
-    //   "surveyId": 0,
-    //   "quizType": 0,
-    //   "option": ["no", "yes"],
-    //   "quiz": "string",
-    //   "isRequired": 0
-    // },
-    // {
-    //   "surveyQuizId": 3,//textbox
-    //   "surveyId": 0,
-    //   "quizType": 0,
-    //   "quiz": "string",
-    //   "isRequired": 0
-    // },
   ];
-
-  final Map serverdata = {
-    "surveyId": 0,
-    "surveyTitle": "string",
-    "description": "string",
-    "status": 0,
-    "surveyLink": "string",
-    "active": 0,
-    "createdDate": "2022-01-18T06:31:07.026Z",
-    "modifiedDate": "2022-01-18T06:31:07.026Z",
-    "surveyQuizInfo": [
-      {
-        "surveyQuizId": 1,
-        "surveyId": 0,
-        "quizType": 0,
-        "quiz": "string",
-        "isRequired": 0
-      },
-      {
-        "surveyQuizId": 2,
-        "surveyId": 0,
-        "quizType": 0,
-        "quiz": "string",
-        "isRequired": 0
-      },
-      {
-        "surveyQuizId": 3,
-        "surveyId": 0,
-        "quizType": 0,
-        "quiz": "string",
-        "isRequired": 0
-      },
-      {
-        "surveyQuizId": 3,
-        "surveyId": 0,
-        "quizType": 0,
-        "quiz": "string",
-        "isRequired": 0
-      }
-    ]
-  };
 
   @override
   void initState() {
@@ -128,7 +118,8 @@ class _DynamicFormsState extends State<DynamicForms> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              GenerateDyamicForm(dataset: dataset),
+              GenerateDyamicForm(
+                  dataset: quizelist.map((e) => e.toMap()).toList()),
               RaisedButton(
                 onPressed: () {
                   var data = CommonFunction().getformdata();
