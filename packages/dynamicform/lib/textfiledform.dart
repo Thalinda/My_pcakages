@@ -27,8 +27,7 @@ class _TextFieldFromState extends State<TextFieldFrom> {
           widget.comm
               ._onUpdate(widget.keyvalue, val, widget.isRequired, widget.label);
         },
-        onEditingComplete: () => FocusScope.of(context).unfocus(),
-        textInputAction: TextInputAction.done,
+        textInputAction: TextInputAction.none,
         decoration: InputDecoration(
           border: const OutlineInputBorder(),
           labelText: widget.label.toString(),
