@@ -26,7 +26,10 @@ class CommonFunction {
 
     for (var i = 0; i < _values.length; i++) {
       if (_values[i]['isrequired'] == 1) {
-        if (_values[i]['value'] == null || _values[i]['value'] == '') {
+        print(_values[i]['id'] + ":" + _values[i]['value']);
+        if (_values[i]['value'] == null ||
+            _values[i]['value'] == '' ||
+            _values[i]['value'].isEmpty) {
           errors.add({'error': _values[i]['label']});
         } else {
           data1[_values[i]['id']] = _values[i]['value'];
