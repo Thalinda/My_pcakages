@@ -13,6 +13,7 @@ class RatingButton extends StatefulWidget {
   String label;
   int limit;
   String keyvalue;
+
   int isRequired;
 
   @override
@@ -35,30 +36,34 @@ class _RatingButtonState extends State<RatingButton> {
             height: 10,
           ),
           ToggleButtons(
-            constraints: BoxConstraints(
-                minWidth: MediaQuery.of(context).size.width * 0.085,
-                minHeight: MediaQuery.of(context).size.height * 0.05),
-            children: List.generate(widget.limit, (index) {
-              int tem = index + 1;
-              return Text('$tem');
-            }),
-            onPressed: (index) {
-              setState(() {
-                _toggleupdate(widget.keyvalue, index.toString());
-                comm._onUpdate(widget.keyvalue, (index + 1).toString(),widget.isRequired,widget.label);
-              });
-            },
-            isSelected: List.generate(widget.limit, (index) {
-              if (index < value) {
-                return true;
-              } else {
-                return false;
-              }
-            }),
-          ),
+              constraints: BoxConstraints(
+                  minWidth: MediaQuery.of(context).size.width * 0.085,
+                  minHeight: MediaQuery.of(context).size.height * 0.05),
+              children: List.generate(widget.limit, (index) {
+                int tem = index + 1;
+                return Text('$tem');
+              }),
+              onPressed: (index) {
+                setState(() {
+                  _toggleupdate(widget.keyvalue, index.toString());
+                  comm._onUpdate(widget.keyvalue, (index + 1).toString(),
+                      widget.isRequired, widget.label);
+                });
+              },
+              isSelected: generateUserClicked(widget.limit, value)),
         ],
       ),
     );
+  }
+
+  List<bool> generateUserClicked(limit, value) {
+    return List.generate(limit, (index) {
+      if (index < value) {
+        return true;
+      } else {
+        return false;
+      }
+    });
   }
 
 // related to toggle buttons
