@@ -94,7 +94,8 @@ class _DynamicFormsState extends State<DynamicForms> {
           child: Column(
             children: [
               GenerateDyamicForm(
-                  dataset: quizelist.map((e) => e.toMap()).toList()),
+                dataset: quizelist.map((e) => e.toMap()).toList()
+              ),
               RaisedButton(
                 onPressed: () {
                   var data = CommonFunction().getformdata();

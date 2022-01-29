@@ -3,7 +3,11 @@
 part of dynamicform;
 
 class TextFieldFrom extends StatefulWidget {
-  TextFieldFrom({Key? key, required this.keyvalue, required this.label, required this.isRequired})
+  TextFieldFrom(
+      {Key? key,
+      required this.keyvalue,
+      required this.label,
+      required this.isRequired})
       : super(key: key);
   CommonFunction comm = CommonFunction();
   final String keyvalue;
@@ -20,8 +24,11 @@ class _TextFieldFromState extends State<TextFieldFrom> {
       padding: const EdgeInsets.only(bottom: 10.0),
       child: TextFormField(
         onChanged: (val) {
-          widget.comm._onUpdate(widget.keyvalue, val, widget.isRequired,widget.label);
+          widget.comm
+              ._onUpdate(widget.keyvalue, val, widget.isRequired, widget.label);
         },
+        onEditingComplete: () => FocusScope.of(context).unfocus(),
+        textInputAction: TextInputAction.done,
         decoration: InputDecoration(
           border: const OutlineInputBorder(),
           labelText: widget.label.toString(),

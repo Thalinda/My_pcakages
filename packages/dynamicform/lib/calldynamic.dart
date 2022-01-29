@@ -3,8 +3,12 @@
 part of dynamicform;
 
 class GenerateDyamicForm extends StatefulWidget {
-  GenerateDyamicForm({Key? key, required this.dataset}) : super(key: key);
+  GenerateDyamicForm({
+    Key? key,
+    required this.dataset,
+  }) : super(key: key);
   List<dynamic> dataset;
+
   CommonFunction comm = CommonFunction();
 
   @override
@@ -56,6 +60,6 @@ class _GenerateDyamicFormState extends State<GenerateDyamicForm> {
   }
 }
 
-// 1 Rating
-// 2 Radio
+// 1 Radio
+// 2 Rating
 // 3 Text
