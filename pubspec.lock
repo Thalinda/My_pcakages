@@ -20,7 +20,7 @@ packages:
     description:
       path: "packages/bmi"
       ref: HEAD
-      resolved-ref: c608a277b9095d18336be8d1da413ddac02f0d03
+      resolved-ref: c3a835f9b218b05c0245e5f332ee77f9821fd7c8
       url: "https://github.com/Thalinda/My_pcakages/"
     source: git
     version: "0.0.1"

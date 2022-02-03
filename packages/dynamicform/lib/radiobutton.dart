@@ -15,7 +15,7 @@ class RadioButtons extends StatefulWidget {
   final int isRequired;
 
   CommonFunction common = CommonFunction();
-  final List<Map<String, dynamic>> _radiobuttons = [];
+   List<Map<String, dynamic>> _radiobuttons = [];
 
   @override
   State<RadioButtons> createState() => _RadioButtonsState();

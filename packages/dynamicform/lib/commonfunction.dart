@@ -17,25 +17,26 @@ class CommonFunction {
       'isrequired': isrequired,
       'label': label
     };
+
     _values.add(json);
   }
 
   getformdata() {
-    Map<String, dynamic> data1 = {};
+    List<Map<String, dynamic>> data1 = [];
     List<Map<String, dynamic>> errors = [];
 
     for (var i = 0; i < _values.length; i++) {
       if (_values[i]['isrequired'] == 1) {
-        print(_values[i]['id'] + ":" + _values[i]['value']);
         if (_values[i]['value'] == null ||
             _values[i]['value'] == '' ||
             _values[i]['value'].isEmpty) {
           errors.add({'error': _values[i]['label']});
         } else {
-          data1[_values[i]['id']] = _values[i]['value'];
+          data1
+              .add({"quizId": _values[i]['id'], "answer": _values[i]['value']});
         }
       } else {
-        data1[_values[i]['id']] = _values[i]['value'];
+        data1.add({"quizId": _values[i]['id'], "answer": _values[i]['value']});
       }
     }
     return {'data': data1, 'errors': errors};
