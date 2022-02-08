@@ -13,7 +13,7 @@ class CheckBoxField extends StatefulWidget {
   final int isRequired;
 
   CommonFunction common = CommonFunction();
-  List<Map<String, dynamic>> _radioselection = [];
+  final List<Map<String, dynamic>> _radioselection = [];
 
   @override
   State<CheckBoxField> createState() => _CheckBoxFieldState();

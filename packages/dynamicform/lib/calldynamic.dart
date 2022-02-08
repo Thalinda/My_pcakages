@@ -24,38 +24,41 @@ class _GenerateDyamicFormState extends State<GenerateDyamicForm> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      itemCount: widget.dataset.length,
-      itemBuilder: (context, index) {
-        CommonFunction()._onUpdate(
-            widget.dataset[index]['surveyQuizId'].toString(),
-            "",
-            widget.dataset[index]['isRequired'],
-            widget.dataset[index]['quiz']);
-        return widget.dataset[index]['quizType'] == 1
-            ? RadioButtons(
-                label: widget.dataset[index]['quiz'],
-                keyvalue: widget.dataset[index]['surveyQuizId'].toString(),
-                options: widget.dataset[index]['options'],
-                isRequired: widget.dataset[index]['isRequired'],
-              )
-            : widget.dataset[index]['quizType'] == 2
-                ? RatingButton(
-                    keyvalue: widget.dataset[index]['surveyQuizId'].toString(),
-                    limit: 10,
-                    label: widget.dataset[index]['quiz'],
-                    isRequired: widget.dataset[index]['isRequired'],
-                  )
-                : widget.dataset[index]['quizType'] == 3
-                    ? TextFieldFrom(
-                        label: widget.dataset[index]['quiz'],
-                        keyvalue:
-                            widget.dataset[index]['surveyQuizId'].toString(),
-                        isRequired: widget.dataset[index]['isRequired'],
-                      )
-                    : Container();
-      },
+    return Form(
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: widget.dataset.length,
+        itemBuilder: (context, index) {
+          CommonFunction()._onUpdate(
+              widget.dataset[index]['surveyQuizId'].toString(),
+              "",
+              widget.dataset[index]['isRequired'],
+              widget.dataset[index]['quiz']);
+          return widget.dataset[index]['quizType'] == 1
+              ? RadioButtons(
+                  label: widget.dataset[index]['quiz'],
+                  keyvalue: widget.dataset[index]['surveyQuizId'].toString(),
+                  options: widget.dataset[index]['options'],
+                  isRequired: widget.dataset[index]['isRequired'],
+                )
+              : widget.dataset[index]['quizType'] == 2
+                  ? RatingButton(
+                      keyvalue:
+                          widget.dataset[index]['surveyQuizId'].toString(),
+                      limit: 10,
+                      label: widget.dataset[index]['quiz'],
+                      isRequired: widget.dataset[index]['isRequired'],
+                    )
+                  : widget.dataset[index]['quizType'] == 3
+                      ? TextFieldFrom(
+                          label: widget.dataset[index]['quiz'],
+                          keyvalue:
+                              widget.dataset[index]['surveyQuizId'].toString(),
+                          isRequired: widget.dataset[index]['isRequired'],
+                        )
+                      : Container();
+        },
+      ),
     );
   }
 }

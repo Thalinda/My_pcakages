@@ -15,7 +15,7 @@ class RadioButtons extends StatefulWidget {
   final int isRequired;
 
   CommonFunction common = CommonFunction();
-   List<Map<String, dynamic>> _radiobuttons = [];
+  final List<Map<String, dynamic>> _radiobuttons = [];
 
   @override
   State<RadioButtons> createState() => _RadioButtonsState();
@@ -37,10 +37,12 @@ class _RadioButtonsState extends State<RadioButtons> {
                       Radio(
                           value: e.toString(),
                           groupValue: value,
+                          
                           onChanged: (bool) {
                             _radioButtonUpdate(
                                 widget.keyvalue, bool.toString());
-                            widget.common._onUpdate(widget.keyvalue, bool, widget.isRequired, widget.label);
+                            widget.common._onUpdate(widget.keyvalue, bool,
+                                widget.isRequired, widget.label);
                             setState(() {});
                           }),
                       Text(e),

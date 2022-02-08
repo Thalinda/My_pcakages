@@ -21,7 +21,7 @@ class RatingButton extends StatefulWidget {
 }
 
 class _RatingButtonState extends State<RatingButton> {
-  List<Map<String, dynamic>> _toggleselection = [];
+  final List<Map<String, dynamic>> _toggleselection = [];
   CommonFunction comm = CommonFunction();
   @override
   Widget build(BuildContext context) {

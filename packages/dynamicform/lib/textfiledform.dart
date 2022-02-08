@@ -18,14 +18,16 @@ class TextFieldFrom extends StatefulWidget {
 }
 
 class _TextFieldFromState extends State<TextFieldFrom> {
+  TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10.0),
       child: TextFormField(
+        controller: controller,
         onChanged: (val) {
-          widget.comm
-              ._onUpdate(widget.keyvalue, val, widget.isRequired, widget.label);
+          widget.comm._onUpdate(widget.keyvalue, controller.text,
+              widget.isRequired, widget.label);
         },
         textInputAction: TextInputAction.none,
         decoration: InputDecoration(
