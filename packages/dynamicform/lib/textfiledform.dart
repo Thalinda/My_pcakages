@@ -21,6 +21,8 @@ class _TextFieldFromState extends State<TextFieldFrom> {
   TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final platform = Theme.of(context).platform;
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 10.0),
       child: TextFormField(
@@ -29,7 +31,9 @@ class _TextFieldFromState extends State<TextFieldFrom> {
           widget.comm._onUpdate(widget.keyvalue, controller.text,
               widget.isRequired, widget.label);
         },
-        textInputAction: TextInputAction.none,
+        textInputAction: TargetPlatform.iOS == platform
+            ? TextInputAction.next
+            : TextInputAction.done,
         decoration: InputDecoration(
           border: const OutlineInputBorder(),
           labelText: widget.label.toString(),
