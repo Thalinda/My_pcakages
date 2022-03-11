@@ -27,6 +27,15 @@ class _DynamicFormsState extends State<DynamicForms> {
         createdDate: DateTime.parse("2022-01-26T00:00:00"),
         modifiedDate: DateTime.parse("2022-01-26T00:00:00")),
     SurveyQuizeModel(
+        options: ["NC", "NS"],
+        surveyQuizId: 7,
+        surveyId: 2,
+        quizType: 1,
+        quiz: "test",
+        isRequired: 0,
+        createdDate: DateTime.parse("2022-03-10T00:00:00"),
+        modifiedDate: DateTime.parse("2022-03-10T00:00:00")),
+    SurveyQuizeModel(
         options: [],
         surveyQuizId: 2,
         surveyId: 2,
@@ -94,8 +103,7 @@ class _DynamicFormsState extends State<DynamicForms> {
           child: Column(
             children: [
               GenerateDyamicForm(
-                dataset: quizelist.map((e) => e.toMap()).toList()
-              ),
+                  dataset: quizelist.map((e) => e.toMap()).toList()),
               RaisedButton(
                 onPressed: () {
                   var data = CommonFunction().getformdata();
