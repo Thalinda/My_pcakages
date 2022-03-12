@@ -24,6 +24,10 @@ class CommonFunction {
     dataset.add(json);
   }
 
+  clearArray() {
+    dataset = [];
+  }
+
   getformdata() {
     List<Map<String, dynamic>> data1 = [];
     List<Map<String, dynamic>> errors = [];
