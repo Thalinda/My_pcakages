@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_final_fields, unused_field
+
 part of dynamicform;
 
 class CommonFunction {
@@ -5,9 +7,9 @@ class CommonFunction {
   DataHolders _dataHolders = Get.put(DataHolders());
   static List dataset = [];
   void _onUpdate(key, val, isrequired, label) {
-    for (int i = 0; i < _dataHolders.dataHolder.length; i++) {
-      if (_dataHolders.dataHolder[i]['id'] == key) {
-        _dataHolders.dataHolder.removeAt(i);
+    for (int i = 0; i < dataset.length; i++) {
+      if (dataset[i]['id'] == key) {
+        dataset.removeAt(i);
         break;
       }
     }
@@ -19,30 +21,33 @@ class CommonFunction {
       'label': label
     };
 
-    _dataHolders.dataHolder.add(json);
+    dataset.add(json);
+  }
+
+  clearArray() {
+    dataset = [];
+  }
+
+  removeData() {
+    _dataHolders.dataHolder.value = [];
   }
 
   getformdata() {
     List<Map<String, dynamic>> data1 = [];
     List<Map<String, dynamic>> errors = [];
 
-    for (var i = 0; i < _dataHolders.dataHolder.length; i++) {
-      if (_dataHolders.dataHolder[i]['isrequired'] == 1) {
-        if (_dataHolders.dataHolder[i]['value'] == null ||
-            _dataHolders.dataHolder[i]['value'] == '' ||
-            _dataHolders.dataHolder[i]['value'].isEmpty) {
-          errors.add({'error': _dataHolders.dataHolder[i]['label']});
+    for (var i = 0; i < dataset.length; i++) {
+      if (dataset[i]['isrequired'] == 1) {
+        if (dataset[i]['value'] == null ||
+            dataset[i]['value'] == '' ||
+            dataset[i]['value'].isEmpty) {
+          errors.add({'error': dataset[i]['label']});
         } else {
-          data1.add({
-            "quizId": _dataHolders.dataHolder[i]['id'],
-            "answer": _dataHolders.dataHolder[i]['value']
-          });
+          data1
+              .add({"quizId": dataset[i]['id'], "answer": dataset[i]['value']});
         }
       } else {
-        data1.add({
-          "quizId": _dataHolders.dataHolder[i]['id'],
-          "answer": _dataHolders.dataHolder[i]['value']
-        });
+        data1.add({"quizId": dataset[i]['id'], "answer": dataset[i]['value']});
       }
     }
 

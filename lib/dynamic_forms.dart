@@ -76,6 +76,7 @@ class _DynamicFormsState extends State<DynamicForms> {
   @override
   void initState() {
     super.initState();
+    CommonFunction().removeData();
   }
 
   @override
