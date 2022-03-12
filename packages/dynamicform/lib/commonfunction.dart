@@ -4,7 +4,7 @@ part of dynamicform;
 
 class CommonFunction {
   static List<Map<String, dynamic>> _values = [];
-  DataHolders _dataHolders = Get.put(DataHolders());
+  // DataHolders _dataHolders = Get.put(DataHolders());
   static List dataset = [];
   void _onUpdate(key, val, isrequired, label) {
     for (int i = 0; i < dataset.length; i++) {
