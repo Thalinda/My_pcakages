@@ -35,7 +35,7 @@ class CommonFunction {
   getformdata() {
     List<Map<String, dynamic>> data1 = [];
     List<Map<String, dynamic>> errors = [];
-
+    print(dataset);
     for (var i = 0; i < dataset.length; i++) {
       if (dataset[i]['isrequired'] == 1) {
         if (dataset[i]['value'] == null ||
