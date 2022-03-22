@@ -28,10 +28,10 @@ class _GenerateDyamicFormState extends State<GenerateDyamicForm> {
       child: SingleChildScrollView(
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
+          height: MediaQuery.of(context).size.height * 0.8,
           child: ListView.builder(
-            shrinkWrap: true,
-            cacheExtent: 10000,
+            // shrinkWrap: true,
+            cacheExtent: 100000000,
             itemCount: widget.dataset.length,
             itemBuilder: (context, index) {
               CommonFunction()._onUpdate(
