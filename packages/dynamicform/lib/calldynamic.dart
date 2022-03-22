@@ -28,7 +28,7 @@ class _GenerateDyamicFormState extends State<GenerateDyamicForm> {
       child: SingleChildScrollView(
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height * 0.75,
+          height: MediaQuery.of(context).size.height * 0.70,
           child: ListView.builder(
             // shrinkWrap: true,
             cacheExtent: 100000000,
