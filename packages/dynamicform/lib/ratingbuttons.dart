@@ -13,6 +13,7 @@ class RatingButton extends StatefulWidget {
   String label;
   int limit;
   String keyvalue;
+  bool numberornote = false;
 
   int isRequired;
 
@@ -35,22 +36,46 @@ class _RatingButtonState extends State<RatingButton> {
           const SizedBox(
             height: 10,
           ),
-          ToggleButtons(
-              constraints: BoxConstraints(
-                  minWidth: MediaQuery.of(context).size.width * 0.085,
-                  minHeight: MediaQuery.of(context).size.height * 0.05),
-              children: List.generate(widget.limit, (index) {
-                int tem = index + 1;
-                return Text('$tem');
-              }),
-              onPressed: (index) {
-                setState(() {
-                  _toggleupdate(widget.keyvalue, index.toString());
-                  comm._onUpdate(widget.keyvalue, (index + 1).toString(),
-                      widget.isRequired, widget.label);
-                });
-              },
-              isSelected: generateUserClicked(widget.limit, value)),
+          Row(
+            children: [
+              ToggleButtons(
+                  constraints: BoxConstraints(
+                      minWidth: MediaQuery.of(context).size.width * 0.070,
+                      minHeight: MediaQuery.of(context).size.height * 0.05),
+                  children: List.generate(widget.limit, (index) {
+                    int tem = index + 1;
+                    return Text('$tem');
+                  }),
+                  onPressed: (index) {
+                    setState(() {
+                      widget.numberornote = false;
+                      _toggleupdate(widget.keyvalue, index.toString());
+                      comm._onUpdate(widget.keyvalue, (index + 1).toString(),
+                          widget.isRequired, widget.label);
+                    });
+                  },
+                  isSelected: generateUserClicked(widget.limit, value)),
+              ToggleButtons(
+                  constraints: BoxConstraints(
+                      minWidth: MediaQuery.of(context).size.width * 0.070,
+                      minHeight: MediaQuery.of(context).size.height * 0.05),
+                  onPressed: (index) {
+                    setState(() {
+                      _toggleupdate(widget.keyvalue, 0.toString());
+                      widget.numberornote = true;
+                      comm._onUpdate(
+                          widget.keyvalue, 0, widget.isRequired, widget.label);
+                    });
+                  },
+                  children: const [
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text("NC/NS"),
+                    )
+                  ],
+                  isSelected: getNcNs(1, value))
+            ],
+          ),
         ],
       ),
     );
@@ -58,7 +83,17 @@ class _RatingButtonState extends State<RatingButton> {
 
   List<bool> generateUserClicked(limit, value) {
     return List.generate(limit, (index) {
-      if (index < value) {
+      if (index < value && widget.numberornote == false) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+  }
+
+  List<bool> getNcNs(limit, value) {
+    return List.generate(limit, (index) {
+      if (index < value && widget.numberornote == true) {
         return true;
       } else {
         return false;

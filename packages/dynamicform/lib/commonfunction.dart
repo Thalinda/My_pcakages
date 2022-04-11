@@ -14,7 +14,7 @@ class CommonFunction {
 
     Map<String, dynamic> json = {
       'id': key,
-      'value': val,
+      'value': val == 0 ? "-1" : val,
       'isrequired': isrequired,
       'label': label
     };
